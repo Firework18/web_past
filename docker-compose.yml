@@ -14,7 +14,7 @@ services:
   db:
     image: postgres:15
     volumes:
-      - ../data:/var/lib/postgresql/data
+      - ../po_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_DB=dj_web_past
