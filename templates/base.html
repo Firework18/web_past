@@ -7,15 +7,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %} App Web para la Pastelería D'Luciana {%endblock titulo%}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap_litera.min.css'%}">
 </head>
 
 <body>
-    Contenido en la plantilla Base <br>
-    {%block contenido%}
-    Contenido Predeterminado..
-    {%endblock contenido%}
 
+    <!--Barra de navegación-->
+    {% include "fragments/menu.html"%}
+    <!--Fin de barra de navegación-->
+    <div class="container">
+        <div class="row">
+            <div class="container sm">
+
+                {%block contenido%}
+
+                {%endblock contenido%}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.4/umd/popper.min.js"
+        integrity="sha512-+Tn2V/oN9O/kiaJg/1o5bETqyS35pMDJzkhkf8uvCzxmRox69AsWkSpBSMEGEe4EZp07Nunw712J3Xvh5Tti0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
 </body>
 
