@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %} App Web para la Pastelería D'Luciana {%endblock titulo%}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap_litera.min.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'css/app.css' %}"> -->
 </head>
 
-<body>
-
+<body id="body">
+    <!-- {% include "fragments/header.html" %} -->
     <!--Barra de navegación-->
     {% include "fragments/menu.html"%}
     <!--Fin de barra de navegación-->
@@ -32,6 +33,10 @@
         integrity="sha512-+Tn2V/oN9O/kiaJg/1o5bETqyS35pMDJzkhkf8uvCzxmRox69AsWkSpBSMEGEe4EZp07Nunw712J3Xvh5Tti0w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- <script src="https://unpkg.com/htmx.org@2.0.4"
+        integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+        crossorigin="anonymous"></script> -->
+    <script src="{% static 'js/htmx.js'%}"></script>
 </body>
 
 </html>

@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%load crispy_forms_tags%}
+{%block titulo%}
+Registro
+{%endblock titulo%}
+
+{%block contenido%}
+
+{%include "fragments/card_start.html" with header="Registro de Usuario"%}
+<form method="post">
+    {%csrf_token%}
+    {{form|crispy}}
+    <button type="submit" class="btn btn-success">Registrar</button>
+</form>
+{% include "fragments/docs_section_final.html"%}
+
+{%endblock contenido%}

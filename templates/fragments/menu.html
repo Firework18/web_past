@@ -1,29 +1,27 @@
+{%load socialaccount%}
+{%providers_media_js%}
+
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Pastelería D'Luciana</a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{%url 'core:home'%}">Inicio
-                        <!-- <span class="visually-hidden">(current)</span> -->
-                    </a>
+                    <div class="nav-link" hx-get="{% url 'core:home' %}" hx-push-url="true" hx-trigger="click"
+                        hx-target="#body" hx-swap="outerHTML" style="cursor: pointer;">Inicio</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Registrar</a>
                 </li>
-                <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Catálogos</a>
+                        aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">Catálogos</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Marcas</a>
                         <a class="dropdown-item" href="#">Modelos</a>
@@ -33,11 +31,34 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{%url 'pages:about'%}">Acerca de...</a>
+                    <div class="nav-link" hx-get="{% url 'pages:about' %}" hx-push="true" hx-trigger="click"
+                        hx-target="#body" hx-swap="outerHTML" style="cursor: pointer;">Nosotros</div>
                 </li>
-
             </ul>
 
+            <div class="d-flex gap-2">
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'usuarios:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" style="cursor: pointer;">Salir</button>
+                </form>
+                {% else %}
+                <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:login' %}"
+                    hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
+                    <button type="button" class="btn btn-danger">Login</button>
+                </div>
+
+                <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:registro' %}"
+                    hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
+                    <button type="button" class="btn btn-danger">Registrar</button>
+                </div>
+
+                <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% provider_login_url 'google' %}"
+                    hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
+                    <button type="button" class="btn btn-danger">Google</button>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </nav>
