@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "bases",
     "usuarios",
     "paginas",
+    "productos",
+    "panel_admin",
 ]
 
 MIDDLEWARE = [

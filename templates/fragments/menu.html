@@ -43,11 +43,14 @@
                     <button type="submit" class="btn btn-danger" style="cursor: pointer;">Salir</button>
                 </form>
                 {% else %}
-                <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:login' %}"
+                <!-- <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:login' %}"
+                    hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
+                    <button type="button" class="btn btn-danger">Login</button>
+                </div> -->
+                <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:login2' %}"
                     hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
                     <button type="button" class="btn btn-danger">Login</button>
                 </div>
-
                 <div class="nav-link p-0" style="cursor: pointer;" hx-get="{% url 'usuarios:registro' %}"
                     hx-push-url="true" hx-trigger="click" hx-target="#body" hx-swap="outerHTML">
                     <button type="button" class="btn btn-danger">Registrar</button>

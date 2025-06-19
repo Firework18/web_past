@@ -14,7 +14,6 @@ class CustomUserAdmin(UserAdmin):
 
     list_display = ["email", "username", "is_superuser"]
 
-    # ⚠️ Solución al error con usable_password
     add_fieldsets = (
         (
             None,

@@ -1,0 +1,35 @@
+<div class="card card-primary card-outline mb-4">
+    <!--begin::Header-->
+    <div class="card-header">
+        <div class="card-title">Formulario | Categorias</div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Form-->
+    <form hx-post="{%url 'productos:category_save'%} " hx-target="#list" method="POST">
+        <!--begin::Body-->
+        <div class="card-body">
+            <div class="mb-6">
+                <label for="id" class="form-label">Id</label>
+                <input type="text" class="form-control" id="id" aria-describedby="idhelp" name="id" placeholder="id"
+                    readonly value="{{obj.id}}" />
+                <small id="idhelp" class="form-text text-muted">Id de la categoria</small>
+            </div>
+            <div class="mb-6">
+                <label for="descript" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="descript" aria-describedby="idhelp" name="descript"
+                    placeholder="Descripcion" value="{{obj.descript}}" />
+                <small id="descripthelp" class="form-text text-muted">Descripcion</small>
+            </div>
+
+        </div>
+        <!--end::Body-->
+        <!--begin::Footer-->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-primary" hx-get="{%url 'productos:mark_list'%}"
+                hx-target="#body">Limpiar</button>
+        </div>
+        <!--end::Footer-->
+    </form>
+    <!--end::Form-->
+</div>

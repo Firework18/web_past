@@ -1,0 +1,43 @@
+{%if obj%}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Tabla de Categorías</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Descripcion</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for o in obj%}
+                                <tr>
+                                    <td>{{o.id}}</td>
+                                    <td>{{o.descript}}</td>
+                                    <td>
+                                        <i class="bi bi-trash3" style="cursor:pointer;"
+                                            hx-delete="{%url 'productos:category_delete' o.id%}" hx-target="#list"
+                                            hx-confirm="¿Está seguro que desea eliminar el registro?"></i>
+                                        <i class="bi bi-pencil-square" style="cursor:pointer;"></i>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%else%}
+<p>No hay registros</p>
+{%endif%}

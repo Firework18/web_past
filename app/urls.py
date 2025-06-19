@@ -24,4 +24,10 @@ urlpatterns = [
     path("pages/", include("paginas.urls")),
     path("usuarios/", include("usuarios.urls")),
     path("accounts/", include("allauth.urls")),
+    path("productos/", include(("productos.urls", "productos"), namespace="productos")),
+    # PANEL DE ADMINISTRACIÓN
+    path(
+        "panel_admin/",
+        include(("panel_admin.urls", "admin_dashboard"), namespace="admin_dashboard"),
+    ),
 ]
